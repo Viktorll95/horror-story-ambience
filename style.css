@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.c-title {
+  margin: 1em;
+}
+
 .c-box {
   border: black 1px solid;
   display: flex;
@@ -11,7 +15,7 @@
   box-sizing: border-box;
 
   /* Set width for c-box */
-  width: 300px; /* Set this to your desired width */
+  width: 200px; /* Set this to your desired width */
   padding: 10px;
 }
 
