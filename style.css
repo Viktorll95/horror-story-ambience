@@ -34,3 +34,7 @@
   object-fit: cover; /* Ensure the image covers the square without distortion */
   border-radius: 1em; /* Optional: match the rounded corners of .c-box */
 }
+
+p {
+  margin: 0;
+}
