@@ -1,28 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".container");
+// Select the buttons and set audio files
+const btnMysticForest = document.getElementById("btn-mystic-forest");
+const btnCricketsNight = document.getElementById("btn-crickets-night");
 
-  container.addEventListener("click", function (e) {
-    if (e.target.closest("button")) {
-      const button = e.target.closest("button"); // Identify the clicked button
-      const cBox = button.closest(".c-box"); // Get the specific .c-box
-      const audio = cBox.querySelector("audio"); // Select the audio within that .c-box
-      const img = button.querySelector("img"); // Find the play/pause icon image
+// Define audio sources
+const mysticForestAudio = new Audio("mystic-forest-ambient.mp3");
+const cricketsNightAudio = new Audio("crickets-at-night.mp3");
 
-      if (audio.paused) {
-        // Play the song
-        audio.play();
-        img.src = "pause-circle-fill.svg";
-        img.alt = "Pause";
-        button.innerText = " Pause ";
-        button.appendChild(img);
-      } else {
-        // Pause the song
-        audio.pause();
-        img.src = "play-circle-fill.svg";
-        img.alt = "Play";
-        button.innerText = " Play ";
-        button.appendChild(img);
-      }
-    }
-  });
+// Set initial states
+let isPlayingMysticForest = false;
+let isPlayingCricketsNight = false;
+
+// Toggle play/pause for Mystic Forest
+btnMysticForest.addEventListener("click", () => {
+  const img = btnMysticForest.querySelector("img");
+
+  if (isPlayingMysticForest) {
+    mysticForestAudio.pause();
+    img.src = "play-circle-fill.svg";
+  } else {
+    mysticForestAudio.play();
+    img.src = "pause-circle-fill.svg";
+  }
+
+  // Toggle play state
+  isPlayingMysticForest = !isPlayingMysticForest;
+
+  // Pause other audio if playing
+  if (isPlayingCricketsNight) {
+    cricketsNightAudio.pause();
+    btnCricketsNight.querySelector("img").src = "play-circle-fill.svg";
+    isPlayingCricketsNight = false;
+  }
+});
+
+// Toggle play/pause for Crickets at Night
+btnCricketsNight.addEventListener("click", () => {
+  const img = btnCricketsNight.querySelector("img");
+
+  if (isPlayingCricketsNight) {
+    cricketsNightAudio.pause();
+    img.src = "play-circle-fill.svg";
+  } else {
+    cricketsNightAudio.play();
+    img.src = "pause-circle-fill.svg";
+  }
+
+  // Toggle play state
+  isPlayingCricketsNight = !isPlayingCricketsNight;
+
+  // Pause other audio if playing
+  if (isPlayingMysticForest) {
+    mysticForestAudio.pause();
+    btnMysticForest.querySelector("img").src = "play-circle-fill.svg";
+    isPlayingMysticForest = false;
+  }
 });
