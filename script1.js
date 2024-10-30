@@ -21,11 +21,12 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const img = button.querySelector("img");
 
-    // First, reset all images to "play-circle-fill.svg"
-    resetAllToPlay();
-
-    // Then, if the clicked image was "play", change it to "pause"
-    if (img.src.includes("play-circle-fill.svg")) {
+    // If the clicked button's image is "pause", toggle it to "play"
+    if (img.src.includes("pause-circle-fill.svg")) {
+      img.src = "play-circle-fill.svg";
+    } else {
+      // Otherwise, reset all to "play" and set the clicked one to "pause"
+      resetAllToPlay();
       img.src = "pause-circle-fill.svg";
     }
   });
