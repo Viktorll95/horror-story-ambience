@@ -2,11 +2,11 @@
   display: flex;
 }
 
-.c-title {
+.m-title {
   margin: 1em;
 }
 
-.c-box {
+.m-box {
   border: black 1px solid;
   display: flex;
   flex-direction: column;
@@ -19,13 +19,13 @@
   padding: 10px;
 }
 
-.c-image-container {
+.m-image-container {
   width: 100%; /* Takes the full width of the .c-box */
   padding-top: 100%; /* Maintains the square ratio by setting height relative to width */
   position: relative; /* Allows the image to position inside */
 }
 
-.c-image-container img {
+.m-image-container img {
   position: absolute;
   top: 0;
   left: 0;
