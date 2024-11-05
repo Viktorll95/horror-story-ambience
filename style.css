@@ -2,9 +2,12 @@
   display: flex;
 }
 
-.m-title {
-  margin: 1em;
+.c-row {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
+
+/* MUSIC */
 
 .m-box {
   border: black 1px solid;
@@ -15,7 +18,7 @@
   box-sizing: border-box;
 
   /* Set width for c-box */
-  width: 200px; /* Set this to your desired width */
+  width: 100px; /* Set this to your desired width */
   padding: 10px;
 }
 
@@ -35,6 +38,40 @@
   border-radius: 1em; /* Optional: match the rounded corners of .c-box */
 }
 
+/* SOUND EFFECTS */
+.se-title {
+  margin: 1em;
+}
+
+.se-box {
+  border: black 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
+  box-sizing: border-box;
+
+  /* Set width for c-box */
+  width: 100px; /* Set this to your desired width */
+  padding: 10px;
+}
+
+.se-image-container {
+  width: 100%; /* Takes the full width of the .c-box */
+  padding-top: 100%; /* Maintains the square ratio by setting height relative to width */
+  position: relative; /* Allows the image to position inside */
+}
+
+.se-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Set the image to take the full width of the container */
+  height: 100%; /* Maintain square ratio */
+  object-fit: cover; /* Ensure the image covers the square without distortion */
+  border-radius: 1em; /* Optional: match the rounded corners of .c-box */
+}
+/*  */
 p {
   margin: 0;
 }
