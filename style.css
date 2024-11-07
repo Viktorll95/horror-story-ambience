@@ -62,6 +62,31 @@
   object-fit: cover; /* Ensure the image covers the square without distortion */
   border-radius: 1em; /* Optional: match the rounded corners of .c-box */
 }
+
+.se-box {
+  position: relative; /* Allows .image-label to be positioned relative to this box */
+}
+
+.image-label {
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  border: 1px solid;
+  width: 15px;
+  height: 24px;
+  border-radius: 1em;
+  text-align: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.318
+  ); /* Optional: add background for readability */
+  position: absolute; /* Position it absolutely */
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+}
+
 /*  */
 p {
   margin: 0;
