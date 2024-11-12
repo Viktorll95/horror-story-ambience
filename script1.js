@@ -10,27 +10,34 @@ let music;
 let musicPlaying = false;
 
 //FIXME: New issue: If music is playing and you press the active musics "Play"-button, the music should pause and the play button should return to default (The "play" img should appear)
+
+const playPauseMusic = function (song) {
+  if (musicPlaying && music === song) {
+    music.pause();
+    musicPlaying = false;
+  } else if (musicPlaying) {
+    music.pause();
+    resetAllToPlay();
+    music = song;
+    music.play();
+    musicPlaying = true;
+  } else if (!musicPlaying) {
+    music = song;
+    music.play();
+    musicPlaying = true;
+    console.log("test");
+  }
+};
+
 document
   .querySelector("#btn-mystic-forest")
   .addEventListener("click", function () {
-    if (musicPlaying) {
-      resetAllToPlay();
-      music.pause();
-    }
-    music = mysticForestAudio;
-    music.play();
-    musicPlaying = true;
+    playPauseMusic(mysticForestAudio);
   });
 document
   .querySelector("#btn-crickets-night")
   .addEventListener("click", function () {
-    if (musicPlaying) {
-      resetAllToPlay();
-      music.pause();
-    }
-    music = cricketsNightAudio;
-    music.play();
-    musicPlaying = true;
+    playPauseMusic(cricketsNightAudio);
   });
 
 // Just an event listener attached to the title of the page
